@@ -1,25 +1,29 @@
 import React from 'react'
 // import PropTypes from 'prop-types'
-import seed from '../seed.json';
+// import seed from '../seed.json';
 import { Container, Row, Col } from 'react-bootstrap'
 import Item from './Item.js';
 import ItemDetails from './ItemDetails.js';
 
-const Board = ({ modalShow, setModalShow }) => {
+const Board = ({ modalShow, setModalShow, items }) => {
+    const item =items.find(item => item.id === modalShow);
+    console.log('chosen item', item)
     return (
         <Container className="mt-4">
             <Row>
-                {seed.map(beer => (
+                {items.map(beer => (
                     <Col md="6" sm="12" lg="4" key={beer.id} className="text-center">
                         <Item item={beer} setModalShow={setModalShow}/>
                     </Col>
                 ))}
             </Row>
-            <ItemDetails 
-                show={modalShow} 
-                onHide={() => setModalShow(false)} 
-                setModalShow={setModalShow}
+            {item &&
+                <ItemDetails 
+                    item={item}
+                    show={true} 
+                    onHide={() => setModalShow(null)}
             />
+            }
         </Container>
     )
 }

@@ -2,10 +2,13 @@ import React from 'react';
 import { Modal, Container, Row, Col, Button, Image } from 'react-bootstrap';
 import seed from '../seed.json';
 import Item from './Item.js';
+import Board from './Board.js';
 
 const ItemDetails = ( props ) => {
-    const beer = seed[1];
-    const { image_url, name, tagline, ibu, abv, ebc, description, food_pairing } = beer;
+    // console.log('item', props.item)
+    // const beer = seed[1];
+    const { image_url, name, tagline, ibu, abv, ebc, description, food_pairing } = props.item;
+
     return (
         <Modal {...props} aria-labelledby="contained-modal-title-vcenter" size="lg">
             <Modal.Header closeButton className="border border-0" />
@@ -43,9 +46,9 @@ const ItemDetails = ( props ) => {
                     </Row>
                     <div className="text-bold-orange">You might also like:</div>
                     <Row className="similar-items">
-                        {seed.map(beer => (
-                            <Col md="6" sm="12" lg="4" key={beer.id} className="text-center">
-                                <Item item={beer} setModalShow={props.setModalShow}/>
+                        {seed.map(item => (
+                            <Col md="6" sm="12" lg="4" key={item.id} className="text-center">
+                                <Item item={item} />
                             </Col>
                         ))}
                     </Row>

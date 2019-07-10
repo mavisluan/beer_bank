@@ -11,7 +11,7 @@ const Header = props => {
                     <Nav.Link href="/favorite">FAVORITE</Nav.Link>
                 </Nav>
             </Navbar>
-            <div style={{fontSize: "2rem"}} className="title">The Beer Bank</div>
+            <div className="title">The Beer Bank</div>
             <div className="small mb-3">Find your favorite beer here</div>
             <Form className="col-8 mx-auto">
                 <Form.Control placeholder="Search for beer name" />

@@ -1,3 +1,20 @@
+/* Header */
 .title {
-  font-weight: bolder
+  font-weight: bolder;
+}
+
+/* Board */
+.card-image {
+  object-fit: contain;
+  width: 100px;
+  height: 200px;
+}
+
+.beer-card:hover {
+  box-shadow: 5px 5px lightgray;
+}
+
+.text-bold-orange {
+  color: #ff8000;
+  font-weight: bold
 }

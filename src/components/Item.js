@@ -2,9 +2,9 @@ import React from 'react'
 // import PropTypes from 'prop-types'
 import { Card, Button } from 'react-bootstrap'
 
-const Item = ({item: {image_url, name, tagline}}) => {
+const Item = ({item: {image_url, name, tagline}, setModalShow}) => {
     return (
-        <Card className="my-2 beer-card" style={{ height: "24rem" }}>
+        <Card className="my-2 beer-card" style={{ height: "24rem" }} onClick={() => setModalShow(true)}>
             <Button variant="link" className="ml-auto text-dark" ><i className="far fa-star"></i></Button>
             <Card.Img variant="top" src={image_url} className="p-3 mx-auto card-image" />
             <Card.Body>

@@ -7,21 +7,21 @@ import ItemDetails from './components/ItemDetails';
 
 function App() {
   const [modalShow, setModalShow] = useState(false);
-  // return (
-  //   <div className="bg-light" style={{height: "2000px"}}>
-  //     <Header />
-  //     <Board />
-  //   </div>
-  // );
   return (
-    <ButtonToolbar>
-      <Button variant="primary" onClick={() => setModalShow(true)}>
-        Launch modal with grid
-      </Button>
-
-      <ItemDetails show={modalShow} onHide={() => setModalShow(false)} />
-    </ButtonToolbar>
+    <div className="bg-light" style={{height: "2000px"}}>
+      <Header />
+      <Board setModalShow={setModalShow} modalShow={modalShow}/>
+    </div>
   );
+  // return (
+  //   <ButtonToolbar>
+  //     <Button variant="primary" onClick={() => setModalShow(true)}>
+  //       Launch modal with grid
+  //     </Button>
+
+  //     <ItemDetails show={modalShow} onHide={() => setModalShow(false)} />
+  //   </ButtonToolbar>
+  // );
 }
 
 export default App;

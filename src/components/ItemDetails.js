@@ -3,7 +3,7 @@ import { Modal, Container, Row, Col, Button, Image } from 'react-bootstrap';
 import seed from '../seed.json';
 import Item from './Item.js';
 
-const ItemDetails = (props) => {
+const ItemDetails = ( props ) => {
     const beer = seed[1];
     const { image_url, name, tagline, ibu, abv, ebc, description, food_pairing } = beer;
     return (
@@ -45,7 +45,7 @@ const ItemDetails = (props) => {
                     <Row className="similar-items">
                         {seed.map(beer => (
                             <Col md="6" sm="12" lg="4" key={beer.id} className="text-center">
-                                <Item item={beer} />
+                                <Item item={beer} setModalShow={props.setModalShow}/>
                             </Col>
                         ))}
                     </Row>

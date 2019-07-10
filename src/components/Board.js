@@ -3,17 +3,23 @@ import React from 'react'
 import seed from '../seed.json';
 import { Container, Row, Col } from 'react-bootstrap'
 import Item from './Item.js';
+import ItemDetails from './ItemDetails.js';
 
-const Board = props => {
+const Board = ({ modalShow, setModalShow }) => {
     return (
         <Container className="mt-4">
             <Row>
                 {seed.map(beer => (
                     <Col md="6" sm="12" lg="4" key={beer.id} className="text-center">
-                        <Item item={beer} />
+                        <Item item={beer} setModalShow={setModalShow}/>
                     </Col>
                 ))}
             </Row>
+            <ItemDetails 
+                show={modalShow} 
+                onHide={() => setModalShow(false)} 
+                setModalShow={setModalShow}
+            />
         </Container>
     )
 }

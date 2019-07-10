@@ -1,12 +1,9 @@
 import React from 'react';
-import { Modal, Container, Row, Col, Button, Image } from 'react-bootstrap';
+import { Modal, Container, Row, Col, Image } from 'react-bootstrap';
 import seed from '../seed.json';
 import Item from './Item.js';
-import Board from './Board.js';
 
 const ItemDetails = ( props ) => {
-    // console.log('item', props.item)
-    // const beer = seed[1];
     const { image_url, name, tagline, ibu, abv, ebc, description, food_pairing } = props.item;
 
     return (

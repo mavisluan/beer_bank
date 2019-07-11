@@ -1,7 +1,8 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 
-const Favorite = props => {
+const Favorite = ({ favoriteItems }) => {
+    console.log(`favorite`, favoriteItems)
     return (
         <div>
             This is Favorite Page

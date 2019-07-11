@@ -4,15 +4,18 @@ import seed from '../seed.json';
 import Item from './Item.js';
 import ItemInfo from './ItemInfo.js';
 
-const DetailsModal = ( props ) => {
+const DetailsModal = ({ modalItem, onHide }) => {
 
     return (
-        <Modal {...props} aria-labelledby="contained-modal-title-vcenter" size="lg">
+        <Modal
+        show={true}
+        onHide={onHide}  
+        aria-labelledby="contained-modal-title-vcenter" size="lg">
             <Modal.Header closeButton className="border border-0" />
             <Modal.Body>
                 <Container>
                     <Row className="item-info">
-                        <ItemInfo modalItem={props.modalItem}/>
+                        <ItemInfo modalItem={modalItem}/>
                     </Row>
                     <div className="text-bold-orange">You might also like:</div>
                     <Row className="similar-items">

@@ -13,3 +13,7 @@ export const getById = async (id) => {
 export const search = async (query) => {
     return await axios.get(`${api}?beer_name=${query}`)
 }
+
+export const findSimilars = async (abv) => {
+    return await axios.get(`${api}?abv_gt=${abv - 0.1}&abv_lt=${abv + 0.1}`)
+}

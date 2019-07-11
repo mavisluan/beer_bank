@@ -4,8 +4,9 @@ import { Container, Row, Col } from 'react-bootstrap'
 import Item from './Item.js';
 import DetailsModal from './DetailsModal.js';
 
-const Board = ({ modalShow, setModalShow, children, setFavorite, items }) => {
-    const modalItem =items.find(item => item.id === modalShow);
+const Board = ({ modalShow, setModalShow, setFavorite, setSimilarItems, items, similarItems, modalItem }) => {
+    // const modalItem =items.find(item => item.id === modalShow);
+    console.log('modalItem', modalItem)
 
     return (
         <Container className="mt-4">
@@ -16,18 +17,20 @@ const Board = ({ modalShow, setModalShow, children, setFavorite, items }) => {
                             item={item} 
                             setModalShow={setModalShow} 
                             setFavorite={setFavorite}
+                            setSimilarItems={setSimilarItems}
                             modalShow={modalShow}
                         />
                     </Col>
                 ))}
             </Row>
-            {modalItem &&
-                <DetailsModal
-                    modalItem={modalItem}
-                    onHide={() => setModalShow(null)}
-                    setModalShow={setModalShow}
-                    modalShow={modalShow}
-                />
+            {modalShow && 
+            <DetailsModal
+                modalItem={modalItem}
+                onHide={() => setModalShow(null)}
+                setModalShow={setModalShow}
+                modalShow={modalShow}
+                similarItems={similarItems}
+            />
             }
         </Container>
     )

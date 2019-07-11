@@ -10,6 +10,6 @@ export const getById = async (id) => {
     return await axios.get(`${api}/${id}`)
 }
 
-export const search = async (input) => {
-    return await axios.get(`${api}?/${input}`)
+export const search = async (query) => {
+    return await axios.get(`${api}?beer_name=${query}`)
 }

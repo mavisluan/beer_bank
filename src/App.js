@@ -7,20 +7,31 @@ import * as BeersAPI from './BeersAPI';
 function App() {
   const [modalShow, setModalShow] = useState(null);
   const [data, setData] = useState({ items: []});
+  const [query, setQuery] = useState('');
   // const [likes, setLikes] = useState({ likes: []})
 
   useEffect(() => {
-    const fetchAll = async () => {
-      const result = await BeersAPI.getAll();
+    if (query === '') {
+      const fetchAll = async () => {
+        const results = await BeersAPI.getAll();
+  
+        setData({ items: results.data});
+      };
+      fetchAll();
+    } else {
 
-      setData({ items: result.data});
-    };
-    fetchAll();
-  }, [])
+      const searchData = async () => {
+        const results = await BeersAPI.search(query);
+        setData({ items: results.data});
+      };
+      searchData();
+    }  
+  }, [query])
+  
 
   return (
     <div className="bg-light" style={{ height: "2000px" }}>
-      <Header />
+      <Header updateQuery={(e) => setQuery(e.target.value)} query={query}/>
       <Board 
         setModalShow={setModalShow} 
         modalShow={modalShow} 

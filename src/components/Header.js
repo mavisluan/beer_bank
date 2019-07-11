@@ -2,7 +2,8 @@ import React from 'react'
 // import PropTypes from 'prop-types'
 import { Navbar, Nav, Form } from 'react-bootstrap'
 
-const Header = props => {
+const Header = ({ updateQuery, query }) => {
+
     return (
         <div style={{ background: "#ff8000" }} className="text-white text-center p-4">
             <Navbar fixed="top" variant="dark" >
@@ -14,8 +15,14 @@ const Header = props => {
             <div className="title">The Beer Bank</div>
             <div className="small mb-3">Find your favorite beer here</div>
             <Form className="col-8 mx-auto">
-                <Form.Control placeholder="Search for beer name" />
+                <Form.Control 
+                    placeholder="Search for beer name" 
+                    name="query" 
+                    value={query}
+                    onChange={updateQuery}
+                />
             </Form>
+            {query}
         </div>
     )
 }

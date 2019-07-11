@@ -4,17 +4,19 @@ import { Container, Row, Col } from 'react-bootstrap'
 import Item from './Item.js';
 import DetailsModal from './DetailsModal.js';
 
-const Board = ({ modalShow, setModalShow, children, setFavorite }) => {
-    const modalItem =children.find(item => item.id === modalShow);
+const Board = ({ modalShow, setModalShow, children, setFavorite, items }) => {
+    const modalItem =items.find(item => item.id === modalShow);
 
     return (
         <Container className="mt-4">
             <Row>
-                {children.map(item => (
+                {items.map(item => (
                     <Col md="6" sm="12" lg="4" key={item.id} className="text-center">
                         <Item 
                             item={item} 
-                            setModalShow={setModalShow} setFavorite={setFavorite}
+                            setModalShow={setModalShow} 
+                            setFavorite={setFavorite}
+                            modalShow={modalShow}
                         />
                     </Col>
                 ))}

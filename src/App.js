@@ -54,8 +54,8 @@ function App() {
             setModalShow={setModalShow}
             setFavorite={setFavorite}
             modalShow={modalShow}
+            items={data.items}
           >
-          {data.items}
           </Board>
         )} />
         <Route path="/favorite" render={() => (
@@ -63,8 +63,8 @@ function App() {
             setModalShow={setModalShow}
             setFavorite={setFavorite}
             modalShow={modalShow}
+            items={favoriteItems}
           >
-          {favoriteItems}
           </Board>
         )} />
       </div>

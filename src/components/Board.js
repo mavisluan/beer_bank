@@ -1,13 +1,12 @@
 import React from 'react'
 // import PropTypes from 'prop-types'
-// import seed from '../seed.json';
 import { Container, Row, Col } from 'react-bootstrap'
 import Item from './Item.js';
-import ItemDetails from './ItemDetails.js';
+import DetailsModal from './DetailsModal.js';
 
 const Board = ({ modalShow, setModalShow, items }) => {
-    const item =items.find(item => item.id === modalShow);
-    console.log('chosen item', item)
+    const modalItem =items.find(item => item.id === modalShow);
+
     return (
         <Container className="mt-4">
             <Row>
@@ -17,12 +16,12 @@ const Board = ({ modalShow, setModalShow, items }) => {
                     </Col>
                 ))}
             </Row>
-            {item &&
-                <ItemDetails 
-                    item={item}
+            {modalItem &&
+                <DetailsModal
+                    modalItem={modalItem}
                     show={true} 
                     onHide={() => setModalShow(null)}
-            />
+                />
             }
         </Container>
     )

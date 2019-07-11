@@ -7,6 +7,7 @@ import * as BeersAPI from './BeersAPI';
 function App() {
   const [modalShow, setModalShow] = useState(null);
   const [data, setData] = useState({ items: []});
+  // const [likes, setLikes] = useState({ likes: []})
 
   useEffect(() => {
     const fetchAll = async () => {

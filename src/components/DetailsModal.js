@@ -4,7 +4,7 @@ import seed from '../seed.json';
 import Item from './Item.js';
 import ItemInfo from './ItemInfo.js';
 
-const DetailsModal = ({ modalItem, onHide }) => {
+const DetailsModal = ({ modalItem, onHide, setModalShow }) => {
 
     return (
         <Modal
@@ -21,7 +21,10 @@ const DetailsModal = ({ modalItem, onHide }) => {
                     <Row className="similar-items">
                         {seed.map(item => (
                             <Col md="6" sm="12" lg="4" key={item.id} className="text-center">
-                                <Item item={item} />
+                                <Item 
+                                    item={item} 
+                                    setModalShow={setModalShow}
+                                    />  
                             </Col>
                         ))}
                     </Row>

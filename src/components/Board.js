@@ -23,6 +23,8 @@ const Board = ({ modalShow, setModalShow, children, setFavorite }) => {
                 <DetailsModal
                     modalItem={modalItem}
                     onHide={() => setModalShow(null)}
+                    setModalShow={setModalShow}
+                    modalShow={modalShow}
                 />
             }
         </Container>

@@ -20,6 +20,10 @@
   height: 200px;
 }
 
+.card-image:hover {
+  cursor: pointer;
+}
+
 .beer-card:hover {
   box-shadow: 5px 5px lightgray;
 }

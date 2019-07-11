@@ -4,6 +4,15 @@
   font-weight: bolder;
 }
 
+.whiteLink {
+  color: white;
+  text-decoration: none
+}
+
+.whiteLink:hover {
+  color: lightgray;
+}
+
 /* Board */
 .card-image {
   object-fit: contain;

@@ -1,15 +1,16 @@
 import React from 'react'
 // import PropTypes from 'prop-types'
 import { Navbar, Nav, Form } from 'react-bootstrap'
+import {Link} from 'react-router-dom';
 
 const Header = ({ updateQuery, query }) => {
 
     return (
         <div style={{ background: "#ff8000" }} className="text-white text-center p-4">
             <Navbar fixed="top" variant="dark" >
-                <Nav className="ml-auto small font-weight-bolder">
-                    <Nav.Link href="/">HOME</Nav.Link>
-                    <Nav.Link href="/favorite">FAVORITE</Nav.Link>
+                <Nav className="ml-auto small font-weight-bolder" >
+                    <Link to="/" className="mr-3 whiteLink">HOME</Link>
+                    <Link to="/favorite" className="whiteLink">FAVORITE</ Link>
                 </Nav>
             </Navbar>
             <div className="title">The Beer Bank</div>

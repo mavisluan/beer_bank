@@ -25,7 +25,7 @@ Users will be able to
 ### Search beers
 <img src='src/icons/search.png' width='500'>
 
-### Installation Instructions
+## Installation Instructions
 * clone my repo `https://github.com/mavisluan/beer-bank.git`
 * install all project dependencies with `yarn install`
 * start the development server with `yarn start`

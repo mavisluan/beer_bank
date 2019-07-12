@@ -6,7 +6,6 @@ import * as BeersAPI from './BeersAPI';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 function App() {
-  const [modalShow, setModalShow] = useState(null);
   const [data, setData] = useState({ items: [] });
   const [query, setQuery] = useState('');
   const [similarData, setSimilarData] = useState([]);
@@ -31,36 +30,24 @@ function App() {
       };
       searchData();
     }
+  }, [query, modalItem])
 
-    if (modalShow !== null) {
-      const modalItem = data.items.find(item => item.id === modalShow);
-      console.log(`find item`, modalItem)
-      if (modalItem) {
-        console.log('modal item in pageData', modalItem)
+  const fetchSimilars = async (abv) => {
+    const results = await BeersAPI.findSimilars(abv);
+    setSimilarData(formatData(results.data));
+  };
+
+  const fetchModalItem = async (id) => {
+    await BeersAPI
+      .getById(id)
+      .then((results) => results.data[0])
+      .then((modalItem) => {
         setModalItem(modalItem);
-      } else {
-        console.log('modal item not in page data', modalItem)
-        const fetchModalItem = async() => {
-        const results = await BeersAPI.getById(modalShow);
-        setModalItem(results.data[0])
-        }
-        fetchModalItem();
-      }     
-
-      if (modalItem) {
-        console.log('get similar data')
-        const fetchSimilars = async () => {
-          const results = await BeersAPI.findSimilars(modalItem.abv)
-          setSimilarData(formatData(results.data));
-        };
-        fetchSimilars(); 
-      }
-    }
-  }, [query, modalShow])
-
+        fetchSimilars(modalItem.abv)
+      })
+  }
 
   const setFavorite = (id) => {
-    console.log(`add ${id} to favorite`)
     const newItems = data.items.map(item => {
       if (item.id === id) {
         item.favorite = true;
@@ -72,30 +59,26 @@ function App() {
 
   const favoriteItems = data.items.filter(item => item.favorite);
 
-  console.log('modalId', modalShow)
-  console.log('app modalItem', modalItem)
-  console.log('similar', similarData)
   return (
     <Router>
-      <div className="bg-light" style={{ height: "2000px" }}>
+      <div className="bg-light" style={{ height: "1000px" }}>
         <Header updateQuery={(e) => setQuery(e.target.value)} query={query} />
         <Route path="/" exact render={() => (
           <Board
-            setModalShow={setModalShow}
+            setModalItem={setModalItem}
             setFavorite={setFavorite}
             setSimilarData={setSimilarData}
-            modalShow={modalShow}
             similarItems={similarData}
             items={data.items}
             modalItem={modalItem}
+            fetchModalItem={fetchModalItem}
           >
           </Board>
         )} />
         <Route path="/favorite" render={() => (
           <Board
-            setModalShow={setModalShow}
+            setModalItem={setModalItem}
             setFavorite={setFavorite}
-            modalShow={modalShow}
             items={favoriteItems}
           >
           </Board>

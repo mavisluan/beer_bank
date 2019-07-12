@@ -4,7 +4,6 @@ import { Navbar, Nav, Form } from 'react-bootstrap'
 import {Link} from 'react-router-dom';
 
 const Header = ({ updateQuery, query }) => {
-
     return (
         <div style={{ background: "#ff8000" }} className="text-white text-center p-4">
             <Navbar fixed="top" variant="dark" >
@@ -23,7 +22,6 @@ const Header = ({ updateQuery, query }) => {
                     onChange={updateQuery}
                 />
             </Form>
-            {query}
         </div>
     )
 }

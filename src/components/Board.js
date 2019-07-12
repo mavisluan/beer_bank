@@ -4,10 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 import Item from './Item.js';
 import DetailsModal from './DetailsModal.js';
 
-const Board = ({ modalShow, setModalShow, setFavorite, setSimilarItems, items, similarItems, modalItem }) => {
-    // const modalItem =items.find(item => item.id === modalShow);
-    console.log('modalItem', modalItem)
-
+const Board = ({ modalShow, setModalItem, setFavorite, setSimilarItems, items, similarItems, modalItem, fetchModalItem }) => {
     return (
         <Container className="mt-4">
             <Row>
@@ -15,21 +12,23 @@ const Board = ({ modalShow, setModalShow, setFavorite, setSimilarItems, items, s
                     <Col md="6" sm="12" lg="4" key={item.id} className="text-center">
                         <Item 
                             item={item} 
-                            setModalShow={setModalShow} 
+                            setModalItem={setModalItem} 
                             setFavorite={setFavorite}
                             setSimilarItems={setSimilarItems}
                             modalShow={modalShow}
+                            fetchModalItem={fetchModalItem}
                         />
                     </Col>
                 ))}
-            </Row>
-            {modalShow && 
+            </Row> 
+            {modalItem &&
             <DetailsModal
                 modalItem={modalItem}
-                onHide={() => setModalShow(null)}
-                setModalShow={setModalShow}
+                onHide={() => setModalItem(null)}
+                setModalItem={setModalItem}
                 modalShow={modalShow}
                 similarItems={similarItems}
+                fetchModalItem={fetchModalItem}
             />
             }
         </Container>

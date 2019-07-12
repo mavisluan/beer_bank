@@ -3,9 +3,7 @@ import { Modal, Container, Row, Col } from 'react-bootstrap';
 import Item from './Item.js';
 import ItemInfo from './ItemInfo.js';
 
-const DetailsModal = ({ modalItem, onHide, setModalShow, similarItems }) => {
-    // console.log(`modal`, modalItem)
-    console.log('similaritems', similarItems)
+const DetailsModal = ({ modalItem, onHide, setModalItem, similarItems, fetchModalItem }) => {
     return (
         <Modal
             show={modalItem !== null}
@@ -23,7 +21,8 @@ const DetailsModal = ({ modalItem, onHide, setModalShow, similarItems }) => {
                             <Col md="6" sm="12" lg="4" key={item.id} className="text-center">
                                 <Item 
                                     item={item} 
-                                    setModalShow={setModalShow}
+                                    setModalItem={setModalItem}
+                                    fetchModalItem={fetchModalItem}
                                 />  
                             </Col>
                         ))}

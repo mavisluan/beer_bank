@@ -12,18 +12,18 @@ Users will be able to
 
 ## Project Screenshots
 ### HomePage
-<img src='src/icons/home-page.png' width='700'>
-
+<img src='src/icons/home-page.png' width='500'>
 
 
 ### FavoritePage
-<img src='src/icons/favorite-page.png' width='700'>
-
+<img src='src/icons/favorite-page.png' width='500'>
 
 
 ### BeerInfo
-<img src='src/icons/beer-info.png' width='700'>
+<img src='src/icons/beer-info.png' width='500'>
 
+### Search beers
+<img src='src/icons/search.png' width='500'>
 
 ### Installation Instructions
 * clone my repo `https://github.com/mavisluan/beer-bank.git`

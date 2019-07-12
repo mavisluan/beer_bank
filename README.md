@@ -15,8 +15,10 @@ Users will be able to
 <img src='src/icons/home-page.png' width='700'>
 
 
+
 ### FavoritePage
 <img src='src/icons/favorite-page.png' width='700'>
+
 
 
 ### BeerInfo

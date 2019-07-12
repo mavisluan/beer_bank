@@ -81,6 +81,8 @@ function App() {
             toggleFavorite={toggleFavorite}
             items={favoriteItems}
             modalItem={modalItem}
+            fetchModalItem={fetchModalItem}
+            similarItems={similarData}
           >
           </Board>
         )} />

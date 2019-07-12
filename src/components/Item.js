@@ -3,7 +3,6 @@ import React from 'react'
 import { Card, Button } from 'react-bootstrap'
 
 const Item = ({ item: { id, image_url, name, tagline, favorite }, modalItem, toggleFavorite, fetchModalItem }) => {
-    console.log('modalItem', modalItem)
     return (
         <Card className="my-2 beer-card" style={{ height: "22rem" }} >
             <Button 

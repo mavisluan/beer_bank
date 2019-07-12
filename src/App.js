@@ -47,16 +47,16 @@ function App() {
       })
   }
 
-  const setFavorite = (id) => {
+  const toggleFavorite = (id) => {
     const newItems = data.items.map(item => {
       if (item.id === id) {
-        item.favorite = true;
+        item.favorite = !item.favorite;
       }
       return item;
     })
     setData({ items: newItems })
   }
-
+  
   const favoriteItems = data.items.filter(item => item.favorite);
 
   return (
@@ -66,7 +66,7 @@ function App() {
         <Route path="/" exact render={() => (
           <Board
             setModalItem={setModalItem}
-            setFavorite={setFavorite}
+            toggleFavorite={toggleFavorite}
             setSimilarData={setSimilarData}
             similarItems={similarData}
             items={data.items}
@@ -78,8 +78,9 @@ function App() {
         <Route path="/favorite" render={() => (
           <Board
             setModalItem={setModalItem}
-            setFavorite={setFavorite}
+            toggleFavorite={toggleFavorite}
             items={favoriteItems}
+            modalItem={modalItem}
           >
           </Board>
         )} />

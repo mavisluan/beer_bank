@@ -17,7 +17,6 @@ function App() {
   }))
 
   useEffect(() => {
-    console.log('data items', data.items)
     if (query === '' ) {
       console.log('fetch all')
       const fetchAll = async () => {

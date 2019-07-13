@@ -17,7 +17,8 @@ function App() {
   }))
 
   useEffect(() => {
-    if (data.items === []) {
+    console.log('data items', data.items)
+    if (query === '' ) {
       console.log('fetch all')
       const fetchAll = async () => {
         const results = await BeersAPI.getAll();

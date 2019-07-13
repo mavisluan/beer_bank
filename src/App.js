@@ -17,7 +17,8 @@ function App() {
   }))
 
   useEffect(() => {
-    if (query === '') {
+    if (data.items = []) {
+      console.log('fetch all')
       const fetchAll = async () => {
         const results = await BeersAPI.getAll();
         setData({ items: formatData(results.data) });
@@ -30,7 +31,7 @@ function App() {
       };
       searchData();
     }
-  }, [query, modalItem])
+  }, [query])
 
   const fetchSimilars = async (abv) => {
     const results = await BeersAPI.findSimilars(abv);

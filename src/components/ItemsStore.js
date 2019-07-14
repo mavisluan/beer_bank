@@ -34,9 +34,10 @@ export const ItemsStore = ({ children }) => {
         }
     }, [query]);
 
-    const fetchSimilars = async abv => {
-        const results = await BeersAPI.findSimilars(abv);
-        setSimilarData(formatData(results.data));
+    const fetchSimilars = async modalItem => {
+        const results = await BeersAPI.findSimilars(modalItem.abv);
+        const similarData = formatData(results.data).filter(item => item.id !== modalItem.id);
+        setSimilarData(similarData);
     };
 
     const fetchModalItem = async id => {
@@ -44,7 +45,7 @@ export const ItemsStore = ({ children }) => {
             .then(results => results.data[0])
             .then(modalItem => {
                 setModalItem(modalItem);
-                fetchSimilars(modalItem.abv);
+                fetchSimilars(modalItem);
             });
     };
 

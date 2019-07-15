@@ -15,8 +15,15 @@ const Board = ({ items }) => (
             return (
                 <Container className="mt-4">
                     <Row>
+                        {displayItems.length === 0 && (
+                            <h3 className="mx-auto">
+                                {query !== ''
+                                    ? 'No matching beers found'
+                                    : 'Your favorite page is empty. Add some beers!'}
+                            </h3>
+                        )}
                         {displayItems.map(item => (
-                            <Col md="6" sm="12" lg="4" key={item.id} className="text-center">
+                            <Col md="6" sm="12" lg="4" xl="3" key={item.id} className="text-center">
                                 <Item item={item} />
                             </Col>
                         ))}

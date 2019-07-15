@@ -10,7 +10,7 @@ const App = () => (
     <ItemsContext.Consumer>
         {({ items, favoriteItems }) => (
             <Router>
-                <div className="bg-light" style={{ height: '1000px' }}>
+                <div className="bg-light">
                     <Header />
                     <Route path="/" exact render={() => <Board items={items}></Board>} />
                     <Route path="/favorite" render={() => <Board items={favoriteItems}></Board>} />

@@ -10,7 +10,7 @@ export const ItemsStore = ({ children }) => {
     const [query, setQuery] = useState('');
     const [similarData, setSimilarData] = useState([]);
     const [modalItem, setModalItem] = useState(null);
-    // const [searchData, setSearchData] = useState([]);
+    const [activeTab, setActiveTab] = useState('home');
 
     const formatData = results =>
         results.map(item => {
@@ -75,6 +75,8 @@ export const ItemsStore = ({ children }) => {
                 fetchModalItem,
                 toggleFavorite,
                 favoriteItems,
+                setActiveTab,
+                activeTab,
             }}
         >
             {children}

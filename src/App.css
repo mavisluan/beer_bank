@@ -4,13 +4,19 @@
   font-weight: bolder;
 }
 
-.whiteLink {
+/* .whiteLink {
   color: white;
-  text-decoration: none
+  text-decoration: none;
 }
 
 .whiteLink:hover {
   color: lightgray;
+} */
+
+.selected {
+  text-decoration: underline;
+  color: brown;
+  border-bottom: 5px solid currentColor;
 }
 
 /* Board */
@@ -30,5 +36,5 @@
 
 .text-bold-orange {
   color: #ff8000;
-  font-weight: bold
+  font-weight: bold;
 }

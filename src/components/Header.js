@@ -20,12 +20,6 @@ const Header = () => (
                         <NavLink to="/favorite" className="mr-3 text-dark" onClick={() => setActiveTab('favorite')}>
                             <span className={activeTab === 'favorite' && 'selected'}>FAVORITE</span>
                         </NavLink>
-                        <NavLink to="/about" className="mr-3 text-dark" onClick={() => setActiveTab('about')}>
-                            <span className={activeTab === 'about' && 'selected'}>ABOUT</span>
-                        </NavLink>
-                        <NavLink to="/contact" className="mr-3 text-dark" onClick={() => setActiveTab('contact')}>
-                            <span className={activeTab === 'contact' && 'selected'}>CONTACT</span>
-                        </NavLink>
                     </Nav>
                 </Navbar>
                 <Row className="justify-content-center">

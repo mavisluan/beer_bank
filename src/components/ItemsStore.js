@@ -10,6 +10,7 @@ export const ItemsStore = ({ children }) => {
     const [query, setQuery] = useState('');
     const [similarData, setSimilarData] = useState([]);
     const [modalItem, setModalItem] = useState(null);
+    // const [searchData, setSearchData] = useState([]);
 
     const formatData = results =>
         results.map(item => {
@@ -19,20 +20,18 @@ export const ItemsStore = ({ children }) => {
         });
 
     useEffect(() => {
-        if (query === '') {
+        const localItems = JSON.parse(localStorage.getItem('localItems'));
+        if (!localItems) {
             const fetchAll = async () => {
                 const results = await BeersAPI.getAll();
+                localStorage.setItem('localItems', JSON.stringify(formatData(results.data)));
                 setData({ items: formatData(results.data) });
             };
             fetchAll();
         } else {
-            const searchData = async () => {
-                const results = await BeersAPI.search(query);
-                setData({ items: results.data });
-            };
-            searchData();
+            setData({ items: localItems });
         }
-    }, [query]);
+    }, []);
 
     const fetchSimilars = async modalItem => {
         const results = await BeersAPI.findSimilars(modalItem.abv);
@@ -50,12 +49,14 @@ export const ItemsStore = ({ children }) => {
     };
 
     const toggleFavorite = id => {
-        const newItems = data.items.map(item => {
+        const localItems = JSON.parse(localStorage.getItem('localItems'));
+        const newItems = localItems.map(item => {
             if (item.id === id) {
                 item.favorite = !item.favorite;
             }
             return item;
         });
+        localStorage.setItem('localItems', JSON.stringify(newItems));
         setData({ items: newItems });
     };
 
